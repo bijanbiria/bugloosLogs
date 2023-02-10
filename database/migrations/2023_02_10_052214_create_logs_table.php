@@ -21,8 +21,11 @@ class CreateLogsTable extends Migration
             $table->string('route');
             $table->string('http_version');
             $table->integer('status_code');
+            $table->integer('file_row_number');
             $table->timestamps();
             $table->softDeletes();
+
+            $table->unique(array('date_time', 'file_row_number'));
         });
     }
 
